@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NutriFormance | WebShop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: rgb(241, 241, 241);" onload="onload()">
+
+  <nav id="navbarID" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="nav navbar-nav">
+      <a href="home.html" class="navbar-brand navBtn">NutriFormance</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="home.html" class="navBtn">Početna</a></li>
+      <li><a href="#" class="navBtn">Nutricionizam</a></li>
+      <li><a href="#" class="navBtn">Zakaži termin</a></li>
+      <li class="active"><a href="webShop.html" class="navBtn">Online trgovina</a></li>
+      <li><a href="#" class="navBtn">O meni</a></li>
+    </ul>
+    <div class="nav navbar-nav navbar-right">
+      <form class="navbar-form ">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Pretraži">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="navbar navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
+        <li data-toggle="modal" data-target="#modalKosarica" onclick="otvoriKosaricu()" ><a href="#"><span id="kosarica" class="glyphicon glyphicon-shopping-cart"><span id="brojArtikala"></span></span> Košarica</a></li>
+        <li data-toggle="modal" data-target="#modalRegistration"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Registriraj se</a></li>
+        <li data-toggle="modal" data-target="#modalLogin"><a href="#"><span id="user" title="Odjavljen" class="glyphicon glyphicon-user"></span> Prijavi se</a></li>
+        <li id="odjavaBtn" onclick="odjava()"><a href="#"><span ></span> Odjava</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+<!--REGISTRACIJA POP UP-->
+  <div class="container">
+    <div class="modal fade" id="modalRegistration" role="dialog">
+      <div class="modal-dialog">
+      
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Registracija:</h4>
+          </div>
+
+          <div class="modal-body">
+            <form class="form-horizontal" action="#">
+              <div class="form-group" id="divImeR">
+                <label class="control-label col-sm-3" for="imeR">Ime:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="imeR" onblur="imeReg()" placeholder="Unesite vaše ime">
+                  <span id="iksImeR"></span>
+                  <span id="tocnoImeR"></span>
+                </div>
+              </div>
+
+              <div class="form-group" id="divPrezimeR">
+                <label class="control-label col-sm-3" for="prezimeR">Prezime:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="prezimeR" onblur="prezimeReg()" placeholder="Unesite vaše prezime">
+                  <span id="iksPrezimeR"></span>
+                  <span id="tocnoPrezimeR"></span>
+                </div>
+              </div>
+
+              <div class="form-group" id="divKorisnickoImeR">
+                <label class="control-label col-sm-3" for="korisnickoImeR">Korisničko ime:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="korisnickoImeR" onblur="korisnickoImeReg()" placeholder="Unesite vaše korisničko ime">
+                  <span id="iksKorisnickoImeR"></span>
+                  <span id="tocnoKorisnickoImeR"></span>
+                </div>
+              </div>
+
+              <div class="form-group" id="divPassR1">
+                <label class="control-label col-sm-3" for="passR1">Lozinka:</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="passR1" onblur="passwordR1()" placeholder="Unesite vašu lozinku">
+                  <span id="iksPassR1"></span>
+                  <span id="tocnoPassR1"></span>
+                  <p id="uputePassR1"></p>
+                  <label for="lozinka1">Prikaži lozinku</label>
+                  <input type="checkbox" id="lozinka1" onclick="showPassReg1()">
+                </div>
+              </div>
+
+              <div class="form-group" id="divPassR2">
+                <label class="control-label col-sm-3" for="passR2">Lozinka:</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="passR2" onblur="passwordR2()" placeholder="Ponovite vašu lozinku">
+                  <span id="iksPassR2"></span>
+                  <span id="tocnoPassR2"></span>
+                  <p id="uputePassR2"></p>
+                  <label for="lozinka2">Prikaži lozinku</label>
+                  <input type="checkbox" id="lozinka2" onclick="showPassReg2()">
+                </div>
+              </div>
+
+              <div class="form-group" id="divEmailR">
+                <label class="control-label col-sm-3" for="emailR">E-mail:</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="emailR" onblur="emailReg()" placeholder="Unesite vašu e-mail adresu">
+                  <span id="iksEmailR"></span>
+                  <span id="tocnoEmailR"></span>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" id="registrirajBtn" onclick="registrirajMe()">Registriraj me</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <!--LOGIN POP UP-->
+
+  <div class="container">
+    <div class="modal fade" id="modalLogin" role="dialog">
+      <div class="modal-dialog">
+      
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Prijava:</h4>
+          </div>
+
+          <div class="modal-body">
+            <form class="form-horizontal" action="#">
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="korisnickoImeLog">Korisničko ime:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="korisnickoImeLog" placeholder="Unesite vaše korisničko ime">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="passLog">Lozinka:</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="passLog" placeholder="Unesite vašu lozinku">
+                  <label for="lozinka">Prikaži lozinku</label>
+                  <input type="checkbox" id="lozinka" onclick="showPassLog()">
+                </div>
+              </div>
+              <strong><p id="errorLog"></p></strong>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="prijaviSe()">Prijava</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+  <!--PRVI RED MAJICA-->
+  <div class="majiceContainer col-sm-10 col-sm-offset-1" style="margin-bottom: 30px; background-color: lightgrey; padding-bottom: 10px;">
+    <h3>Odjeća i obuća</h3>
+  <div class="col-sm-3">
+    <div class="opis" id="opisMajice1">
+      <img id="majicaPrva" class="slika" title="CBT Attack - Black/Red" src="" onmouseover="majicaPrvaBack()" onmouseout="majicaPrvaFront()" width="300px" height="300px">
+      <strong><p id="naziv1">Naziv: <span class="naziv" id="nazivMajice1">CBT Attack - Black/Red</span></p></strong>
+      <span>Cijena: <span class="cijena"  id="cijenaMajice1">159</span><span class="cijenaHRK">HRK</span></span>
+      <span><img class="boja" src="glyphicon_blackred.png" onclick="majicaPrvaCrnoCrvena()" width="15px"></span>
+      <span><img class="boja" src="glyphicon_red.png" onclick="majicaPrvaCrvena()" width="15px"></span>
+      <span><img class="boja" src="glyphicon_black.png" onclick="majicaPrvaCrna()" width="15px"></span><br>
+      <span class="velicinaDiv">Veličina: <span class="vel" id="vel1"></span> <span class="velicinaS velicina velicinaM1">S</span><span class="velicinaM velicina velicinaM1">M</span><span class="velicinaL velicina velicinaM1">L</span><span class="velicinaXL velicina velicinaM1">XL</span><span class="velicinaXXL velicina velicinaM1">XXL</span></span><br>
+      <span class="kolicina">Količina: <input class="kolicinaInput" id="kolicinaMajice1" type="number" min="1" value="1"></span><br>
+      <input class="dodajBtn" onclick="dodajMajicu1()" type="button" value="Dodaj u košaricu">
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="opis" id="opisMajice2">
+      <img id="majicaDruga" class="slika" title="CBT Lion - Red" src="" onmouseover="majicaDrugaBack()" onmouseout="majicaDrugaFront()" alt="" width="300px"  height="300px">
+      <strong><p id="naziv2">Naziv: <span class="naziv" id="nazivMajice2">CBT Lion - Red</span></p></strong>
+      <span>Cijena: <span class="cijena" id="cijenaMajice2">129</span><span class="cijenaHRK">HRK</span></span>
+      <span><img class="boja" src="glyphicon_red.png" onclick="majicaDrugaCrvena()" width="15px"></span>
+      <span><img class="boja" src="glyphicon_yellow.png" onclick="majicaDrugaZuta()" width="15px"></span>
+      <span><img class="boja" src="glyphicon_black.png" onclick="majicaDrugaCrna()" width="15px"></span><br>
+      <span class="velicinaDiv">Veličina: <span class="vel" id="vel2"></span> <span class="velicinaS velicina velicinaM2">S</span><span class="velicinaM velicina velicinaM2">M</span><span class="velicinaL velicina velicinaM2">L</span><span class="velicinaXL velicina velicinaM2">XL</span><span class="velicinaXXL velicina velicinaM2">XXL</span></span><br>
+      <span class="kolicina">Količina: <input class="kolicinaInput" id="kolicinaMajice2" type="number" min="1" value="1"></span><br>
+      <input class="dodajBtn" onclick="dodajMajicu2()" type="button" value="Dodaj u košaricu">
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="opis" id="opisMajice3">
+      <img id="majicaTreca" class="slika" title="CBT Medal" src="Majice/majica3.png" onmouseover="majicaTrecaBack()" onmouseout="majicaTrecaFront()" alt="" width="300px"  height="300px">
+      <strong><p id="naziv3">Naziv: <span class="naziv" id="nazivMajice3">CBT Medal</span></p></strong>
+      <span>Cijena: <span class="cijena" id="cijenaMajice3">149</span><span class="cijenaHRK">HRK</span></span><br>
+      <span class="velicinaDiv">Veličina: <span class="vel" id="vel3"></span> <span class="velicinaS velicina velicinaM3">S</span><span class="velicinaM velicina velicinaM3">M</span><span class="velicinaL velicina velicinaM3">L</span><span class="velicinaXL velicina velicinaM3">XL</span><span class="velicinaXXL velicina velicinaM3">XXL</span></span><br>
+      <span class="kolicina">Količina: <input class="kolicinaInput" id="kolicinaMajice3" type="number" min="1" value="1"></span><br>
+      <input class="dodajBtn" onclick="dodajMajicu3()" type="button" value="Dodaj u košaricu">
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="opis" id="opisMajice4">
+      <img id="majicaCetvrta" class="slika" title="CBT Strong - White/Red" src="" onmouseover="majicaCetvrtaBack()" onmouseout="majicaCetvrtaFront()" alt="" width="300px"  height="300px">
+      <strong><p id="naziv4">Naziv: <span class="naziv" id="nazivMajice4">CBT Strong - White/Red</span></p></strong>
+      <span>Cijena: <span class="cijena" id="cijenaMajice4">99</span><span class="cijenaHRK">HRK</span></span>
+      <span><img class="boja" src="glyphicon_redwhite.png" onclick="majicaCetvrtaBijeloCrvena()" width="15px"></span>
+      <span><img class="boja" src="glyphicon_red.png" onclick="majicaCetvrtaCrvena()" width="15px"></span>
+      <span><img class="boja" src="glyphicon_white.png" onclick="majicaCetvrtaBijela()" width="15px"></span><br>
+      <span class="velicinaDiv">Veličina: <span class="vel" id="vel4"></span> <span class="velicinaS velicina velicinaM4" >S</span><span class="velicinaM velicina velicinaM4">M</span><span class="velicinaL velicina velicinaM4">L</span><span class="velicinaXL velicina velicinaM4">XL</span><span class="velicinaXXL velicina velicinaM4">XXL</span></span><br>
+      <span class="kolicina">Količina: <input class="kolicinaInput" id="kolicinaMajice4" type="number" min="1" value="1"></span><br>
+      <input class="dodajBtn" onclick="dodajMajicu4()" type="button" value="Dodaj u košaricu">
+    </div>
+  </div>
+</div>
+
+<div class="crta col-sm-12" style="border: 1px solid lightgrey;"></div>
+
+<!--KOŠARICA POP UP-->
+<div class="container">
+  <div class="modal fade" id="modalKosarica" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Vaša košarica:</h4>
+        </div>
+
+        <div class="modal-body">
+          <form class="form-horizontal" action="#">
+            <div class="form-group" id="kosaricaProizvodi">
+              
+              
+           
+
+            </div>           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <h4 style="float: left; margin: 0; margin-top: 5px;">Ukupno: <span id="ukupnoKosarica">0 HRK</span><span id="kupiUpozorenje"></span></h4>
+          <button type="button" class="btn btn-default" id="kupiBtn" onclick="kupi()">Kupi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="shop.js"></script>  
+<script src="validacija.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+#myCarousel {
+    padding: 0;
+    margin: 10px;
+}
+#navbarID{
+    padding: 0;
+    margin: 0px;
+}
+
+.slika:hover {
+    cursor: pointer;
+}
+
+.boja {
+    border: 1px solid black;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+.boja:hover{
+    cursor: pointer;
+    opacity: 60%;
+}
+
+#crvenaBoja{
+    background-color: red;
+}
+#zutaBoja{
+    background-color: yellow;
+}
+#crnaBoja{
+    background-color: black;
+}
+#bijelaBoja{
+    background-color: white;
+}
+
+.opis {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.opisBtn{
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: dimgray;
+    color: ghostwhite;
+    float: left;
+}
+
+.opisBtn:hover{
+    opacity: 70%;
+}
+
+.dodajBtn{
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-family:'Trebuchet MS', sans-serif;
+    background-color: dimgray;
+    color: ghostwhite;
+}
+
+.cijenaHRK{
+    margin-right: 10px;
+    
+}
+
+.dodajBtn:hover {
+    opacity: 70%;
+}
+
+.proizvodi{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+    
+}
+
+.velicina{
+    padding-left: 3px;
+    padding-right: 3px;
+    margin: 3px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+.velicina:hover{
+    font-style: italic;
+    opacity: 80%;
+    cursor: pointer;
+    background-color: dimgrey;
+}
+
+.kolicinaInput{
+    width: 36px;
+    height: 18px;
+    border-color: rgb(192, 192, 192);
+}
+
+.kolicinaInputKosarica{
+    width: 36px;
+    height: 18px;
+}
+
+.majiceContainer{
+    margin-top: 54px;
+}
+
+.izbaciBtnsKosarica{
+    float: right;
+    margin-right: 15px;
+    color: grey;
+}
+
+.izbaciBtnsKosarica:hover{
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.slika{
+    margin-bottom: 10px;
+}
+
+#kupiUpozorenje{
+    margin-left: 180px;
+    text-decoration: underline;
+    font-size: small;
+}
+
+#odjavaBtn:active {
+    color: grey;
+}
